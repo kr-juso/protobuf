@@ -6,7 +6,7 @@ option go_package="juso/regcode";
 import "google/api/annotations.proto";
 
 service RegcodeService {
-  rpc GetRegcodes(GetRegcodesRequest) returns (GetRegcodesList) {
+  rpc GetRegcodes(GetRegcodesRequest) returns (GetRegcodesResponse) {
 	option (google.api.http) = {
 	  get: "/v1/regcodes"
 	};
@@ -23,7 +23,7 @@ message GetRegcodesRequest {
   optional Page page = 2;
 }
 
-message GetRegcodesResposne {
+message GetRegcodesResponse {
   repeated Regcode results = 1;
 }
 
