@@ -1,0 +1,33 @@
+syntax = "proto3";
+package juso.regcode;
+
+option go_package="juso/regcode";
+
+import "google/api/annotations.proto";
+
+service RegcodeService {
+  rpc GetRegcodes(GetRegcodesRequest) returns (GetRegcodesList) {
+	option (google.api.http) = {
+	  get: "/v1/regcodes"
+	};
+  }
+}
+
+message Regcode {
+  string code = 1;
+  string name = 2;
+}
+
+message GetRegcodesRequest {
+  string regcode = 1;
+  optional Page page = 2;
+}
+
+message GetRegcodesResposne {
+  repeated Regcode results = 1;
+}
+
+message Page {
+  int32 page = 1; // page number
+  int32 size = 2;
+}
