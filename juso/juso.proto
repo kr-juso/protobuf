@@ -19,15 +19,9 @@ message Regcode {
 }
 
 message GetRegcodesRequest {
-  string regcode = 1;
-  optional Page page = 2;
+  string regcodePattern = 1;
 }
 
 message GetRegcodesResponse {
   repeated Regcode results = 1;
-}
-
-message Page {
-  int32 page = 1; // page number
-  int32 size = 2;
 }
