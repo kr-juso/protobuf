@@ -19,7 +19,7 @@ message Regcode {
 }
 
 message GetRegcodesRequest {
-  string regcodePattern = 1;
+  string regcode_pattern = 1;
 }
 
 message GetRegcodesResponse {
