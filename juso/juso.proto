@@ -20,6 +20,7 @@ message Regcode {
 
 message GetRegcodesRequest {
   string regcode_pattern = 1;
+  bool is_ignore_zero = 2; // regcode_pattern값이 "1111*"일 경우 "1111000000" 코드는 제외된다.
 }
 
 message GetRegcodesResponse {
