@@ -6,7 +6,7 @@ option go_package="juso/regcode";
 import "google/api/annotations.proto";
 
 service RegcodeService {
-  rpc GetRegcodes(GetRegcodesRequest) returns (GetRegcodesResponse) {
+  rpc ListRegcodes(ListRegcodesRequest) returns (ListRegcodesResponse) {
 	option (google.api.http) = {
 	  get: "/v1/regcodes"
 	};
@@ -18,11 +18,11 @@ message Regcode {
   string name = 2;
 }
 
-message GetRegcodesRequest {
+message ListRegcodesRequest {
   string regcode_pattern = 1;
   bool is_ignore_zero = 2; // regcode_pattern값이 "1111*"일 경우 "1111000000" 코드는 제외된다.
 }
 
-message GetRegcodesResponse {
-  repeated Regcode results = 1;
+message ListRegcodesResponse {
+  repeated Regcode regcodes = 1;
 }
